@@ -15,7 +15,9 @@ function App() {
   const [nDatos, setNDatos] = useState(10)
   const [currentPage, setCurrentPage] = useState(1)
 
+  
   const url = `https://rickandmortyapi.com/api/location/${locationSelect || getRandomNumber(126)}`
+
   const [location, getLocation, hasError] = useFetch(url)
   useEffect(() => {
     getLocation()
@@ -25,12 +27,9 @@ function App() {
   const indexFin = currentPage * nDatos;
   const indexIni = indexFin - nDatos;
   const nPages = Math.ceil(location?.residents.length / nDatos);
-  console.log(nPages)
+  
+  const residents = location?.residents.slice(indexIni,indexFin)
 
-  const residents = location?.residents.splice(indexIni, nDatos)
-  console.log(residents)
-
-  console.log(location)
 
   return (
     <section className=" bg-[#05292E] text-white w-full min-h-[100vh]">

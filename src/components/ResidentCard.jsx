@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
 
-const ResidentCard = ({ url}) => {
+const ResidentCard = ({ url }) => {
     const [character, getCharacter] = useFetch(url)
     const [status, setStatus] = useState()
     useEffect(() => {
@@ -12,7 +12,7 @@ const ResidentCard = ({ url}) => {
 
 
 
-    console.log(character)
+
     return (<article className=" flex w-[200px] flex-col justify-center items-center mx-auto shadow shadow-black rounded-xl overflow-hidden bg-[#072226] relative hover:shadow-md hover:shadow-[#79B624] ">
         <header>
             <img src={character?.
@@ -21,7 +21,7 @@ const ResidentCard = ({ url}) => {
             } />
 
             <div className="bg-[#072226] absolute top-10 px-2 rounded-r-xl flex justify-center items-center space-x-2">
-                <div className={`rounded-full ${character?.status==="Dead"?" bg-red-600":""} ${character?.status==="Alive"?" bg-green-600":""} ${character?.status==="unknown"?" bg-gray-500":""} w-4 h-4`}></div>
+                <div className={`rounded-full ${character?.status === "Dead" ? " bg-red-600" : ""} ${character?.status === "Alive" ? " bg-green-600" : ""} ${character?.status === "unknown" ? " bg-gray-500" : ""} w-4 h-4`}></div>
                 <span>{character?.status}</span>
 
             </div>
